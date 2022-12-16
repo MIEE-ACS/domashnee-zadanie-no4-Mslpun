@@ -5,11 +5,19 @@ int n = int.Parse(Console.ReadLine());
 double max = 0;
 double[] mas = new double[n];
 double m = 0;
+string mm;
 Console.WriteLine("Заполняем массив.");
 for (int i = 0; i < n; i++)
 {
-    mas[i] = double.Parse(Console.ReadLine());
+    mm = Console.ReadLine();
+    while (double.TryParse(mm, out mas[i]) == false)
+    {
+        Console.WriteLine("Ошибка! Вы ввели не то, что надо. Вводите цифры.");
+        mm = Console.ReadLine();
+    }
+    mas[i] = double.Parse(mm);
 }
+m = 0;
 Console.WriteLine("Максимальный элемент.");
 for(int i = 0; i<n;i++)
 {
